@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>trackerKEYJI.com | Fortnite Competitive</title>
+  <meta name="theme-color" content="#090711">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #090711;
+      color: #f5f3ff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      border-bottom: 1px solid #29213e;
+      background: #0e0b19;
+    }
+    .logo { font-size: 23px; font-weight: 900; letter-spacing: -1px; }
+    .logo span { color: #a855f7; }
+    .status { color: #b7adc9; font-size: 12px; }
+    .hero {
+      text-align: center;
+      padding: 75px 20px 55px;
+      background: radial-gradient(ellipse at top, #32145a 0%, #130d22 45%, #090711 78%);
+    }
+    .tag {
+      display: inline-block;
+      padding: 8px 13px;
+      border: 1px solid #6933a0;
+      border-radius: 30px;
+      color: #d8b4fe;
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+    h1 { font-size: clamp(38px, 7vw, 72px); margin: 24px 0 12px; letter-spacing: -3px; }
+    h1 span { color: #a855f7; }
+    .intro { color: #b9b1ca; line-height: 1.7; max-width: 580px; margin: 0 auto 30px; }
+    .search {
+      display: flex;
+      max-width: 620px;
+      margin: auto;
+      padding: 7px;
+      gap: 8px;
+      background: #171222;
+      border: 1px solid #483064;
+      border-radius: 12px;
+    }
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 15px;
+      color: white;
+      background: transparent;
+      border: 0;
+      outline: 0;
+      font-size: 15px;
+    }
+    button {
+      padding: 0 22px;
+      border: 0;
+      border-radius: 8px;
+      background: #9333ea;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover { background: #a855f7; }
+    main { max-width: 1100px; margin: auto; padding: 35px 22px 70px; }
+    .section-title { font-size: 22px; margin: 0 0 8px; }
+    .muted { color: #958ba9; font-size: 13px; line-height: 1.6; }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 22px; }
+    .card {
+      padding: 22px;
+      background: linear-gradient(145deg, #191326, #100d19);
+      border: 1px solid #30243f;
+      border-radius: 13px;
+    }
+    .metric { color: #a99cba; font-size: 12px; margin-bottom: 14px; }
+    .value { font-size: 27px; font-weight: 800; }
+    .placeholder { color: #a855f7; font-size: 12px; margin-top: 10px; }
+    .panel {
+      margin-top: 30px;
+      padding: 24px;
+      background: #100d19;
+      border: 1px solid #30243f;
+      border-radius: 13px;
+    }
+    .event {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      padding: 18px 0;
+      border-bottom: 1px solid #29213a;
+    }
+    .event:last-child { border-bottom: 0; }
+    .event-name { font-weight: bold; margin-bottom: 6px; }
+    .pill {
+      white-space: nowrap;
+      color: #d8b4fe;
+      background: #28163c;
+      border: 1px solid #4d2b70;
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+    }
+    #message { color: #d8b4fe; margin-top: 18px; font-size: 14px; }
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #29213e;
+      color: #81758f;
+      font-size: 12px;
+    }
+    @media (max-width: 750px) {
+      header { padding: 18px 5%; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { padding-top: 55px; }
+      .search { flex-direction: column; }
+      .search button { padding: 15px; }
+      .event { align-items: flex-start; }
+      h1 { letter-spacing: -2px; }
+    }
+    @media (max-width: 380px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">tracker<span>KEYJI</span>.com</div>
+    <div class="status">FORTNITE COMPETITIVE</div>
+  </header>
+
+  <section class="hero">
+    <div class="tag">LA COMPÉTITION, EN UN SEUL ENDROIT</div>
+    <h1>TRACK YOUR <span>GAME.</span></h1>
+    <p class="intro">
+      Retrouve les statistiques compétitives Fortnite, les performances
+      et les résultats des joueurs.
+    </p>
+    <form class="search" id="searchForm">
+      <input id="playerName" type="text" placeholder="Entre le pseudo Fortnite..." aria-label="Pseudo Fortnite" required>
+      <button type="submit">Rechercher ↗</button>
+    </form>
+    <div id="message" aria-live="polite"></div>
+  </section>
+
+  <main>
+    <h2 class="section-title">Vue d'ensemble</h2>
+    <p class="muted">Les statistiques du joueur recherché apparaîtront ici une fois la source de données connectée.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="metric">POWER RANKING</div>
+        <div class="value">—</div>
+        <div class="placeholder">En attente des données</div>
+      </div>
+      <div class="card">
+        <div class="metric">ELO / RANK</div>
+        <div class="value">—</div>
+        <div class="placeholder">En attente des données</div>
+      </div>
+      <div class="card">
+        <div class="metric">GAINS EN TOURNOI</div>
+        <div class="value">—</div>
+        <div class="placeholder">En attente des données</div>
+      </div>
+      <div class="card">
+        <div class="metric">TOURNOIS JOUÉS</div>
+        <div class="value">—</div>
+        <div class="placeholder">En attente des données</div>
+      </div>
+    </div>
+
+    <section class="panel">
+      <h2 class="section-title">Résultats compétitifs</h2>
+      <p class="muted">Historique des compétitions et placements du joueur.</p>
+      <div class="event">
+        <div>
+          <div class="event-name">Résultats des tournois</div>
+          <div class="muted">Les résultats réels seront affichés après connexion à une API.</div>
+        </div>
+        <span class="pill">À CONNECTER</span>
+      </div>
+      <div class="event">
+        <div>
+          <div class="event-name">Classements et performances</div>
+          <div class="muted">Classements compétitifs du joueur recherché.</div>
+        </div>
+        <span class="pill">À CONNECTER</span>
+      </div>
+      <div class="event">
+        <div>
+          <div class="event-name">Historique des gains</div>
+          <div class="muted">Gains vérifiés en compétition, si la source les fournit.</div>
+        </div>
+        <span class="pill">À CONNECTER</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 class="section-title">À propos de trackerKEYJI</h2>
+      <p class="muted">
+        Un projet dédié à la scène compétitive Fortnite. Les données affichées
+        devront provenir d'une source autorisée et vérifiable.
+        Ce site n'est pas affilié à Epic Games.
+      </p>
+    </section>
+  </main>
+
+  <footer>trackerKEYJI.com · Projet indépendant · Non affilié à Epic Games</footer>
+
+  <script>
+    const form = document.getElementById("searchForm");
+    const input = document.getElementById("playerName");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const player = input.value.trim();
+      if (!player) return;
+      message.textContent = "Pseudo recherché : " + player +
+        " — les statistiques réelles seront disponibles après connexion de la source de données.";
+    });
+  </script>
+</body>
+</html>
